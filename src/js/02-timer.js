@@ -40,15 +40,16 @@ const calendars = flatpickr('#datetime-picker', options);
 function timer() {
     btnStart.disabled = true;
     inputEl.disabled = true;
-    timeId = setInterval(() => {
+
+  const timeId = setInterval(() => {
         const date = new Date();
         const dateResult = calendars.selectedDates[0].getTime() - date.getTime()
         if (dateResult < 1000) {
             clearInterval(timeId);
             inputEl.disabled = false;
         };
-        inputTime = convertMs(dateResult);
-    convertMs(inputTime)
+        
+    convertMs(dateResult)
             daysLeft.textContent = addLeadingZero(inputTime.days, 2);
             hoursLeft.textContent = addLeadingZero(inputTime.hours,2);
             minutesLeft.textContent = addLeadingZero(inputTime.minutes,2);
