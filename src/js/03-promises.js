@@ -23,9 +23,9 @@ event.preventDefault();
 const { elements: { delay, step, amount },
   } = event.currentTarget;
 
-  delayOfNumber = Number(delay.value);
+  const delayOfNumber = Number(delay.value);
 
-  stepOfNumber = Number(step.value);
+  const stepOfNumber = Number(step.value);
 
 for (let index = 1; index < amount.value; index++) {
   createPromise(index, delayOfNumber)
