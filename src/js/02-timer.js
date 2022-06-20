@@ -48,7 +48,7 @@ function timer() {
             clearInterval(timeId);
             inputEl.disabled = false;
         };
-        
+      const inputTime = convertMs(dateResult);
     convertMs(dateResult)
             daysLeft.textContent = addLeadingZero(inputTime.days, 2);
             hoursLeft.textContent = addLeadingZero(inputTime.hours,2);
