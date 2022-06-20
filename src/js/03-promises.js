@@ -21,13 +21,13 @@ function createPromise(position, delay) {
 function onFormSubmit(event) {
 event.preventDefault();
 const { elements: { delay, step, amount },
-  } = event.currentTarget;
+  } = event.target;
 
-  const delayOfNumber = Number(delay.value);
+  let delayOfNumber = Number(delay.value);
 
   const stepOfNumber = Number(step.value);
 
-for (let index = 1; index < amount.value; index++) {
+for (let index = 1; index <= amount.value; index++) {
   createPromise(index, delayOfNumber)
   .then(({ position, delay }) => {
     Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
@@ -35,7 +35,7 @@ for (let index = 1; index < amount.value; index++) {
   .catch(({ position, delay }) => {
      Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
   });
-  delayOfNumber += stepOfNumber;
+  delayOfNumber = delayOfNumber + stepOfNumber;
   };
    event.target.reset()
 };
