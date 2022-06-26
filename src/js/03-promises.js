@@ -23,7 +23,7 @@ event.preventDefault();
 const { elements: { delay, step, amount },
   } = event.target;
 if(delay.value < 0 || step.value < 0 || amount.value < 0){
- return Notify.failure(`the value cannot be negative')
+ return Notify.failure(`the value cannot be negative`)
   };
   let delayOfNumber = Number(delay.value);
 
